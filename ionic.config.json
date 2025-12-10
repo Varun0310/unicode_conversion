@@ -1,0 +1,7 @@
+{
+  "name": "unicode_conversion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
