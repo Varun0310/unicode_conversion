@@ -1,0 +1,149 @@
+:root {
+  --primary-blue: #1976d2;
+  --light-blue: #e3f2fd;
+  --secondary-blue: #64b5f6;
+  --text-dark: #1a1a1a;
+  --text-light: #4f4f4f;
+}
+
+.home-container {
+  background: #f7faff;
+}
+
+/* Welcome Box */
+.welcome-box {
+  background: #1976d2;
+  padding: 25px;
+  border-radius: 16px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 15px;
+  }
+}
+
+/* Stats Row */
+.stats-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 25px;
+
+  .stat-card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 16px;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    h3 {
+      font-size: 22px;
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  }
+
+  .card-blue {
+    background: #1976d2;
+  }
+
+  .card-light-blue {
+    background: #42a5f5;
+  }
+}
+
+/* Section Title */
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 15px;
+  color: var(--text-dark);
+}
+
+.lang-select {
+  --placeholder-color: #fff;
+  color: #fff;
+}
+
+ion-toolbar {
+  --background: #1e1e2f;
+}
+
+ion-button {
+  font-weight: light;
+}
+
+.desktop-menu {
+  display: flex;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 375px) {
+  /* Hide desktop buttons */
+  .desktop-menu {
+    display: none !important;
+  }
+
+  /* Show hamburger icon */
+  .mobile-menu {
+    display: flex !important;
+  }
+}
+
+.dashboard-title {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Quick Grid */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+
+  .quick-card {
+    background: #fff;
+    padding: 25px 10px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: 0.2s;
+    border: 1px solid #e5eaf0;
+
+    ion-icon {
+      font-size: 36px;
+      color: #1976d2;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+    }
+  }
+}

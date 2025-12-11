@@ -1,0 +1,15 @@
+{
+  "baseLabels": {
+    "title": "Finance Dashboard",
+    "welcome": "Welcome Back, User!",
+    "subtitle": "Your financial overview at a glance",
+    "totalBalance": "Total Balance",
+    "monthlyExpenses": "Monthly Expenses",
+    "quickAccess": "Quick Access",
+    "profile": "Profile",
+    "reports": "Reports",
+    "settings": "Settings",
+    "support": "Support",
+    "logout": "Logout"
+  }
+}

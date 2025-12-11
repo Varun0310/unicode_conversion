@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="dashboard-title">
+      {{ labels.title }}
+    </ion-title>
+
+    <!-- Desktop Buttons -->
+    <ion-buttons slot="end" class="desktop-menu">
+      <ion-select
+        interface="popover"
+        [value]="currentLang"
+        (ionChange)="changeLanguage($event.detail.value)"
+      >
+        <ion-select-option value="en">English</ion-select-option>
+        <ion-select-option value="ta">Tamil</ion-select-option>
+        <ion-select-option value="ml">Malayalam</ion-select-option>
+        <ion-select-option value="te">Telugu</ion-select-option>
+        <ion-select-option value="kn">Kannada</ion-select-option>
+      </ion-select>
+
+      <ion-button fill="clear" (click)="logout()">
+        {{ labels.logout }}
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Mobile Hamburger -->
+    <ion-buttons slot="end" class="mobile-menu">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Optional loader while translating -->
+  <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
+</ion-header>
+
+<!-- MENU POPUP FOR SMALL SCREENS -->
+<ion-popover [isOpen]="menuOpen" (didDismiss)="menuOpen = false">
+  <ng-template>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Language</ion-label>
+          <ion-select
+            interface="popover"
+            [value]="currentLang"
+            (ionChange)="changeLanguage($event.detail.value)"
+          >
+            <ion-select-option value="en">English</ion-select-option>
+            <ion-select-option value="ta">Tamil</ion-select-option>
+            <ion-select-option value="ml">Malayalam</ion-select-option>
+            <ion-select-option value="te">Telugu</ion-select-option>
+            <ion-select-option value="kn">Kannada</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item button (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>{{ labels.logout }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-popover>
+
+<ion-content class="ion-padding home-container">
+  <!-- Welcome Section -->
+  <div class="welcome-box">
+    <h2>{{ labels.welcome }}</h2>
+    <p>{{ labels.subtitle }}</p>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-row">
+    <div class="stat-card card-blue">
+      <h3>₹1,25,000</h3>
+      <span>{{ labels.totalBalance }}</span>
+    </div>
+
+    <div class="stat-card card-blue">
+      <h3>₹12,500</h3>
+      <span>{{ labels.monthlyExpenses }}</span>
+    </div>
+  </div>
+
+  <!-- Quick Access -->
+  <h3 class="section-title">{{ labels.quickAccess }}</h3>
+
+  <div class="quick-grid">
+    <div class="quick-card">
+      <ion-icon name="person-outline"></ion-icon>
+      <p>{{ labels.profile }}</p>
+    </div>
+
+    <div class="quick-card">
+      <ion-icon name="analytics-outline"></ion-icon>
+      <p>{{ labels.reports }}</p>
+    </div>
+
+    <div class="quick-card">
+      <ion-icon name="settings-outline"></ion-icon>
+      <p>{{ labels.settings }}</p>
+    </div>
+
+    <div class="quick-card">
+      <ion-icon name="help-circle-outline"></ion-icon>
+      <p>{{ labels.support }}</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="primary">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
