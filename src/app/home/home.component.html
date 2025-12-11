@@ -5,11 +5,7 @@
     </ion-title>
 
     <ion-buttons slot="end" class="desktop-menu">
-      <ion-select
-        interface="popover"
-        [value]="currentLang"
-        (ionChange)="changeLanguage($event.detail.value)"
-      >
+      <ion-select interface="popover" [value]="currentLang" (ionChange)="changeLanguage($event.detail.value)">
         <ion-select-option value="en">English</ion-select-option>
         <ion-select-option value="ta">Tamil</ion-select-option>
         <ion-select-option value="ml">Malayalam</ion-select-option>
@@ -38,11 +34,7 @@
       <ion-list>
         <ion-item>
           <ion-label>Language</ion-label>
-          <ion-select
-            interface="popover"
-            [value]="currentLang"
-            (ionChange)="changeLanguage($event.detail.value)"
-          >
+          <ion-select interface="popover" [value]="currentLang" (ionChange)="changeLanguage($event.detail.value)">
             <ion-select-option value="en">English</ion-select-option>
             <ion-select-option value="ta">Tamil</ion-select-option>
             <ion-select-option value="ml">Malayalam</ion-select-option>
@@ -104,8 +96,7 @@
   </div>
 </ion-content>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button color="primary">
-    <ion-icon name="add-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+<!-- home.component.html -->
+<div class="custom-fab" (click)="gotocontact()">
+  <span class="custom-fab-text">{{ labels.contact }}</span>
+</div>

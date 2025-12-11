@@ -1,0 +1,12 @@
+{
+  "baseLabels": {
+    "pageTitle": "Contact Us",
+    "formTitle": "Get in touch",
+    "formSubtitle": "We'd love to hear from you. Please fill the form below.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message"
+  }
+}
