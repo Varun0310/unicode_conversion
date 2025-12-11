@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
   changeLanguage(lang: string) {
     this.currentLang = lang;
 
-    // back to English
     if (lang === 'en') {
       this.labels = { ...this.baseLabels };
       return;
