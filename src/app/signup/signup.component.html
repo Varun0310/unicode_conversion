@@ -1,0 +1,65 @@
+<ion-content>
+  <div class="login-content">
+    <div class="login-container">
+      <h2 class="login-title">Create account</h2>
+
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+        <!-- Full Name -->
+        <ion-item>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input formControlName="fullName" placeholder="Full name"></ion-input>
+        </ion-item>
+        <div *ngIf="f['fullName'].touched && f['fullName'].invalid" class="error">
+          <small *ngIf="f['fullName'].errors?.['required']">Full name is required.</small>
+        </div>
+
+        <!-- Email -->
+        <ion-item>
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input type="email" formControlName="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <div *ngIf="f['email'].touched && f['email'].invalid" class="error">
+          <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
+          <small *ngIf="f['email'].errors?.['email']">Enter a valid email.</small>
+        </div>
+
+        <!-- Phone -->
+        <ion-item>
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+          <ion-input type="tel" formControlName="phone" placeholder="Phone (optional)"></ion-input>
+        </ion-item>
+
+        <!-- Password -->
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <div *ngIf="f['password'].touched && f['password'].invalid" class="error">
+          <small *ngIf="f['password'].errors?.['required']">Password is required.</small>
+          <small *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters.</small>
+        </div>
+
+        <!-- Confirm Password -->
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input type="password" formControlName="confirmPassword" placeholder="Confirm Password"></ion-input>
+        </ion-item>
+        <div *ngIf="passwordsMismatch" class="error">
+          Passwords do not match.
+        </div>
+
+        <!-- Submit Button -->
+        <ion-button expand="block" class="login-btn" type="submit"
+          [disabled]="signupForm.invalid || passwordsMismatch || loading">
+          {{ loading ? 'Creating...' : 'Create account' }}
+        </ion-button>
+
+        <div class="small-row">
+          <p>Already have an account? <a (click)="goToLogin()">Login</a></p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</ion-content>

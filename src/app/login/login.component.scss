@@ -9,7 +9,7 @@ ion-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(201, 239, 226);
+  background-color: #c3d8fd;
 }
 
 .login-container {
@@ -43,4 +43,17 @@ ion-input {
   --background: #3880ff;
   --color: #fff;
   border-radius: 8px;
+}
+
+
+.small-row {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.small-row a {
+  color: #3880ff;
+  font-weight: 600;
+  cursor: pointer;
 }

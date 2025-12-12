@@ -51,7 +51,7 @@ export class ContactComponent implements OnInit, OnDestroy {
         this.baseLabels = data?.baseLabels || {};
         this.labels = { ...this.baseLabels };
 
-        const current = this.languageService.getLang();
+        const current = this.languageService.getCurrent();
         console.log('Contact: current language from service ->', current);
 
         const stored = localStorage.getItem('app_lang');
@@ -59,10 +59,17 @@ export class ContactComponent implements OnInit, OnDestroy {
           console.log('Contact: localStorage app_lang =', stored, '(will translate if different)');
         }
 
-        const effectiveLang = current && current !== 'en' ? current : (stored && stored !== 'en' ? stored : 'en');
-        if (effectiveLang && effectiveLang !== 'en') {
+        const effectiveLang =
+          current && current !== 'en'
+            ? current
+            : stored && stored !== 'en'
+              ? stored
+              : 'en';
+
+        if (effectiveLang !== 'en') {
           this.translateLabels(effectiveLang);
         }
+
       },
       error: (err) => {
         console.error('Contact: Failed to load contact.en.json', err);

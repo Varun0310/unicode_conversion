@@ -1,21 +1,35 @@
-<ion-content class="login-content">
-  <div class="login-content">
-    <div class="login-container">
-      <h2 class="login-title">Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <ion-content class="login-content">
+    <div class="login-content">
+      <div class="login-container">
+        <h2 class="login-title">Login</h2>
 
-      <ion-item>
-        <ion-icon name="mail-outline" slot="start"></ion-icon>
-        <ion-input type="email" placeholder="Email"></ion-input>
-      </ion-item>
+        <!-- EMAIL -->
+        <ion-item>
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input formControlName="email" type="email" placeholder="Email">
+          </ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-        <ion-input type="password" placeholder="Password"></ion-input>
-      </ion-item>
+        <!-- PASSWORD -->
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input formControlName="password" type="password" placeholder="Password">
+          </ion-input>
+        </ion-item>
 
-      <ion-button expand="block" class="login-btn" (click)="login()"
-        >Login</ion-button
-      >
+        <!-- LOGIN BUTTON -->
+        <ion-button expand="block" class="login-btn" type="submit" [disabled]="loading">
+          {{ loading ? 'Signing in...' : 'Login' }}
+        </ion-button>
+
+        <div class="small-row">
+          <p>Don't have an account?
+            <a (click)="goToSignup()">Sign up</a>
+          </p>
+        </div>
+
+      </div>
     </div>
-  </div>
-</ion-content>
+  </ion-content>
+</form>

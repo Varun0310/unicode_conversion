@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  currentLang = 'en';
+
+  constructor() {
+
+    sessionStorage.setItem('app_lang', this.currentLang);
+
+  }
+
+
 }

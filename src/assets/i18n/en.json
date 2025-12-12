@@ -1,7 +1,7 @@
 {
   "baseLabels": {
     "title": "Finance Dashboard",
-    "welcome": "Welcome Back, User!",
+    "welcome": "Welcome Back,",
     "subtitle": "Your financial overview at a glance",
     "totalBalance": "Total Balance",
     "monthlyExpenses": "Monthly Expenses",

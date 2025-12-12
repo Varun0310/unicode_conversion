@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title class="dashboard-title">
-      {{ labels.title }}
+      {{ labels['title'] }}
     </ion-title>
 
     <ion-buttons slot="end" class="desktop-menu">
@@ -14,7 +14,7 @@
       </ion-select>
 
       <ion-button fill="clear" (click)="logout()">
-        {{ labels.logout }}
+        {{ labels['logout'] }}
       </ion-button>
     </ion-buttons>
 
@@ -45,7 +45,7 @@
 
         <ion-item button (click)="logout()">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
-          <ion-label>{{ labels.logout }}</ion-label>
+          <ion-label>{{ labels['logout'] }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
@@ -54,49 +54,50 @@
 
 <ion-content class="ion-padding home-container">
   <div class="welcome-box">
-    <h2>{{ labels.welcome }}</h2>
-    <p>{{ labels.subtitle }}</p>
+    <!-- <h2>{{ labels['welcome'] {{ userNameDisplay }}}}</h2> -->
+    <h2>{{labels['welcome']}} {{userNameDisplay}}</h2>
+    <p>{{ labels['subtitle'] }}</p>
   </div>
 
   <div class="stats-row">
     <div class="stat-card card-blue">
       <h3>₹1,25,000</h3>
-      <span>{{ labels.totalBalance }}</span>
+      <span>{{ labels['totalBalance']}}</span>
     </div>
 
     <div class="stat-card card-blue">
       <h3>₹12,500</h3>
-      <span>{{ labels.monthlyExpenses }}</span>
+      <span>{{ labels['monthlyExpenses'] }}</span>
     </div>
   </div>
 
   <!-- Quick Access -->
-  <h3 class="section-title">{{ labels.quickAccess }}</h3>
+  <h3 class="section-title">{{ labels['quickAccess'] }}</h3>
 
   <div class="quick-grid">
     <div class="quick-card">
       <ion-icon name="person-outline"></ion-icon>
-      <p>{{ labels.profile }}</p>
+      <p>{{ labels['profile'] }}</p>
     </div>
 
     <div class="quick-card">
       <ion-icon name="analytics-outline"></ion-icon>
-      <p>{{ labels.reports }}</p>
+      <p>{{ labels['reports'] }}</p>
     </div>
 
     <div class="quick-card">
       <ion-icon name="settings-outline"></ion-icon>
-      <p>{{ labels.settings }}</p>
+      <p>{{ labels['settings'] }}</p>
     </div>
 
     <div class="quick-card">
       <ion-icon name="help-circle-outline"></ion-icon>
-      <p>{{ labels.support }}</p>
+      <p>{{ labels['support'] }}</p>
     </div>
   </div>
 </ion-content>
 
 <!-- home.component.html -->
 <div class="custom-fab" (click)="gotocontact()">
-  <span class="custom-fab-text">{{ labels.contact }}</span>
+  <span class="custom-fab-text">{{ labels['contact'] }}</span>
 </div>
