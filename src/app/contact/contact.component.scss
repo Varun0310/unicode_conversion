@@ -2,37 +2,65 @@
     display: block;
 }
 
-.card-like {
-    background: #fff;
-    border-radius: 14px;
-    padding: 22px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    margin-bottom: 24px;
-    min-height: 320px;
+/* Page padding */
+.contact-page {
+    padding: 18px 14px 90px;
 }
 
+/* Card */
+.card-like {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* Header title */
+.header-title {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Card title */
 .card-title {
     color: var(--ion-color-primary);
-    font-size: 22px;
-    margin: 0 0 6px 0;
+    font-size: 24px;
     font-weight: 700;
+    margin: 0;
 }
 
+/* Small divider */
+.title-divider {
+    width: 42px;
+    height: 3px;
+    background: var(--ion-color-primary);
+    border-radius: 2px;
+    margin: 8px 0 14px;
+}
+
+/* Subtitle */
 .card-sub {
     color: rgba(0, 0, 0, 0.65);
-    margin-bottom: 18px;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 22px;
 }
 
+/* Form item */
 .form-item {
-    background: #fafafa;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    padding: 8px 12px;
-    --padding-start: 0;
-    --padding-end: 0;
+    background: #f9fafc;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.form-item:focus-within {
+    border-color: var(--ion-color-primary);
+    box-shadow: 0 0 0 2px rgba(56, 128, 255, 0.15);
+}
+
+/* Inputs */
 ion-input,
 ion-textarea {
     --padding-start: 6px;
@@ -40,35 +68,29 @@ ion-textarea {
     font-size: 15px;
 }
 
-.actions {
-    margin-top: 14px;
+ion-label {
+    font-weight: 500;
+    margin-bottom: 4px;
 }
 
+/* Error text */
 .error {
-    color: #d32f2f;
-    font-size: 13px;
-    padding-left: 6px;
-    margin-bottom: 8px;
+    color: #e53935;
+    font-size: 12.5px;
+    padding-left: 8px;
+    margin-bottom: 10px;
 }
 
-.contact-page {
-    padding-top: 18px;
-    padding-bottom: 90px;
+/* Button */
+.actions {
+    margin-top: 18px;
 }
 
-.custom-fab {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 9999;
-    background-color: var(--ion-color-primary);
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 28px;
+ion-button {
     height: 52px;
-    min-width: 72px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(56, 128, 255, 0.25);
 }

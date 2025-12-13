@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   userNameOriginal = '';   // the raw name stored in localStorage (e.g. "Varun")
   userNameDisplay = '';    // name displayed on UI (may be transliterated)
   greeting = 'Welcome';    // translated greeting (only greeting is translated)
+  brandName = 'Fino Pay';
+
 
   private langSub: Subscription | null = null;
   private nameCacheKey = 'name_translations'; // localStorage key for cached name translations
@@ -33,7 +35,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     private languageService: LanguageService
   ) { }
 
+  private updateBrandName(lang: string) {
+    const BRAND_NAMES: Record<string, string> = {
+      en: 'Fino Pay',
+      ta: 'ஃபினோ பே',
+      hi: 'फिनो पे',
+      te: 'ఫినో పే',
+      ml: 'ഫിനോ പേ',
+      kn: 'ಫಿನೋ ಪೇ'
+    };
+
+    this.brandName = BRAND_NAMES[lang] || BRAND_NAMES['en'];
+  }
+
+
   ngOnInit() {
+
+    const initialLang = this.languageService.getCurrent() || 'en';
+    this.updateBrandName(initialLang);
+
     this.loadBaseLabels();
 
     this.loadUser();
@@ -74,6 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private applyLanguage(lang: string) {
+
     if (!this.baseLabels || Object.keys(this.baseLabels).length === 0) {
     } else if (!lang || lang === 'en') {
       this.labels = { ...this.baseLabels };
@@ -105,7 +126,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
       });
     }
-
+    this.updateBrandName(lang);
     this.updateDisplayedUserName(lang);
   }
 
@@ -117,7 +138,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       return;
     }
     try {
-      const u =  raw;
+      const u = raw;
       this.userNameOriginal = u;
       this.userNameDisplay = this.userNameOriginal;
       console.log('this.userNameDisplay', this.userNameDisplay)

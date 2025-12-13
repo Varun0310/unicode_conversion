@@ -3,50 +3,80 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ labels.pageTitle || 'Contact' }}</ion-title>
+    <ion-title class="header-title">
+      {{ labels.pageTitle || 'Contact Us' }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="contact-page">
   <div class="card-like">
-    <h2>{{ labels.formTitle || 'Get in touch' }}</h2>
-    <p>{{ labels.formSubtitle || "We'd love to hear from you." }}</p>
 
+    <!-- Title -->
+    <h2 class="card-title">
+      {{ labels.formTitle || 'Get in touch' }}
+    </h2>
+    <div class="title-divider"></div>
+
+    <p class="card-sub">
+      {{ labels.formSubtitle || "We'd love to hear from you." }}
+    </p>
+
+    <!-- Form -->
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <ion-item lines="none">
-        <ion-label position="stacked">{{ labels.name || 'Name' }}</ion-label>
-        <ion-input formControlName="name" [placeholder]="labels.name || 'Name'"></ion-input>
+
+      <!-- Name -->
+      <ion-item class="form-item" lines="none">
+        <ion-label position="stacked">
+          {{ labels.name || 'Name' }}
+        </ion-label>
+        <ion-input formControlName="name" [placeholder]="labels.name || 'Name'">
+        </ion-input>
       </ion-item>
       <div *ngIf="f['name'].touched && f['name'].invalid" class="error">
         {{ labels.name || 'Name' }} is required.
       </div>
 
-      <ion-item lines="none">
-        <ion-label position="stacked">{{ labels.email || 'Email' }}</ion-label>
-        <ion-input type="email" formControlName="email" [placeholder]="labels.email || 'Email'"></ion-input>
+      <!-- Email -->
+      <ion-item class="form-item" lines="none">
+        <ion-label position="stacked">
+          {{ labels.email || 'Email' }}
+        </ion-label>
+        <ion-input type="email" formControlName="email" [placeholder]="labels.email || 'Email'">
+        </ion-input>
       </ion-item>
       <div *ngIf="f['email'].touched && f['email'].invalid" class="error">
         Enter a valid {{ labels.email || 'Email' }}.
       </div>
 
-      <ion-item lines="none">
-        <ion-label position="stacked">{{ labels.subject || 'Subject' }}</ion-label>
-        <ion-input formControlName="subject" [placeholder]="labels.subject || 'Subject'"></ion-input>
+      <!-- Subject -->
+      <ion-item class="form-item" lines="none">
+        <ion-label position="stacked">
+          {{ labels.subject || 'Subject' }}
+        </ion-label>
+        <ion-input formControlName="subject" [placeholder]="labels.subject || 'Subject'">
+        </ion-input>
       </ion-item>
 
-      <ion-item lines="none">
-        <ion-label position="stacked">{{ labels.message || 'Message' }}</ion-label>
-        <ion-textarea formControlName="message" rows="5" [placeholder]="labels.message || 'Message'"></ion-textarea>
+      <!-- Message -->
+      <ion-item class="form-item" lines="none">
+        <ion-label position="stacked">
+          {{ labels.message || 'Message' }}
+        </ion-label>
+        <ion-textarea rows="5" formControlName="message" [placeholder]="labels.message || 'Message'">
+        </ion-textarea>
       </ion-item>
       <div *ngIf="f['message'].touched && f['message'].invalid" class="error">
         {{ labels.message || 'Message' }} must be at least 10 characters.
       </div>
 
+      <!-- Button -->
       <div class="actions">
-        <ion-button expand="block" type="submit" [disabled]="contactForm.invalid" color="primary">
+        <ion-button expand="block" type="submit" color="primary" [disabled]="contactForm.invalid">
           {{ labels.send || 'Send Message' }}
         </ion-button>
       </div>
+
     </form>
   </div>
 </ion-content>
