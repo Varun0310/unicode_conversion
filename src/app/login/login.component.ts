@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private toastCtrl: ToastController,
     private auth: AuthService,
-    private languageService: LanguageService     // <-- added
+    private languageService: LanguageService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,16 +28,27 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  get f() { return this.loginForm.controls; }
+  get f() {
+    return this.loginForm.controls;
+  }
 
   async login() {
-    console.log('LOGIN pressed', this.loginForm.value, 'valid?', this.loginForm.valid);
+    console.log(
+      'LOGIN pressed',
+      this.loginForm.value,
+      'valid?',
+      this.loginForm.valid
+    );
 
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
-      const t = await this.toastCtrl.create({ message: 'Enter email and password', duration: 1500, color: 'danger' });
+      const t = await this.toastCtrl.create({
+        message: 'Enter email and password',
+        duration: 1500,
+        color: 'danger',
+      });
       await t.present();
       return;
     }
@@ -46,28 +57,45 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.auth.login({ email, password }).subscribe({
       next: async (res: any) => {
-        console.log('res', res)
+        console.log('res', res);
         this.loading = false;
 
         if (res?.token) {
           sessionStorage.setItem('token', res.token);
           sessionStorage.setItem('name', res.name);
+          sessionStorage.setItem('userId', res.userId);
+          sessionStorage.setItem('onboardingStep', res.onboardingStep);
+        }
+
+        const step = res.onboardingStep;
+
+        if (step === 'customer') {
+          this.router.navigate(['/customer-form']);
+        } else if (step === 'finance') {
+          this.router.navigate(['/finance', res.userId]);
+        } else if (step === 'aadhaar') {
+          this.router.navigate(['/aadhaar-form', res.userId]);
+        } else {
+          this.router.navigate(['/home']);
         }
 
         const toast = await this.toastCtrl.create({
           message: res?.message || 'Login successful',
           duration: 1200,
-          color: 'success'
+          color: 'success',
         });
         await toast.present();
-        setTimeout(() => this.router.navigate(['/home']), 800);
       },
       error: async (err) => {
         this.loading = false;
         const msg = err?.error?.message || 'Login failed';
-        const toast = await this.toastCtrl.create({ message: msg, duration: 2000, color: 'danger' });
+        const toast = await this.toastCtrl.create({
+          message: msg,
+          duration: 2000,
+          color: 'danger',
+        });
         await toast.present();
-      }
+      },
     });
   }
 

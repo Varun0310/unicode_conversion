@@ -1,0 +1,108 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.customer-form-page {
+  --ion-background-color: transparent;
+}
+
+.form-wrapper {
+  max-width: 940px; /* nice readable width on desktop */
+  margin: 18px auto; /* center horizontally and add top spacing */
+  padding: 4px;
+}
+
+ion-card {
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+ion-card-header {
+  padding-bottom: 0;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+ion-card-subtitle {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* File button row */
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f9ff;
+  border: 1px dashed rgba(0, 0, 0, 0.08);
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  color: #0b6ef6;
+  font-weight: 600;
+}
+
+.file-btn ion-icon {
+  font-size: 18px;
+}
+
+/* hide default file input */
+input[type="file"] {
+  display: none;
+}
+
+/* preview */
+.preview-wrap {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.preview-image {
+  max-width: 240px;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(10, 25, 47, 0.06);
+}
+
+/* action row spacing */
+.action-row {
+  margin-top: 16px;
+  align-items: center;
+}
+
+/* small foot note under card */
+.foot-note {
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .form-wrapper {
+    margin: 10px 12px;
+  }
+  .preview-image {
+    max-width: 180px;
+    max-height: 180px;
+  }
+  .file-btn {
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,98 @@
+<ion-content class="aadhaar-page ion-padding">
+  <div class="form-wrapper">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Aadhaar Details</ion-card-title>
+        <ion-card-subtitle
+          >Enter Aadhaar number and upload both sides</ion-card-subtitle
+        >
+      </ion-card-header>
+
+      <ion-card-content>
+        <form (submit)="submit(); $event.preventDefault()">
+          <ion-item>
+            <ion-label position="stacked">User ID</ion-label>
+            <ion-input [value]="userId" readonly></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Aadhaar Number</ion-label>
+            <ion-input
+              [(ngModel)]="aadhaarNumber"
+              name="aadhaarNumber"
+              placeholder="123412341234"
+              maxlength="14"
+              type="tel"
+            ></ion-input>
+          </ion-item>
+
+          <div class="two-col">
+            <div class="file-block">
+              <label class="file-btn" for="frontInput">
+                <ion-icon name="camera-outline"></ion-icon>
+                <span>Front Side</span>
+              </label>
+              <input
+                id="frontInput"
+                type="file"
+                accept="image/*"
+                (change)="onFrontChange($event)"
+              />
+              <div class="file-info" *ngIf="frontFile">
+                <small
+                  >{{ frontFile.name }} —
+                  {{ frontFile.size / 1024 / 1024 | number : "1.2-2" }}
+                  MB</small
+                >
+              </div>
+              <div *ngIf="frontPreview" class="preview">
+                <img [src]="frontPreview" alt="front" />
+              </div>
+            </div>
+
+            <div class="file-block">
+              <label class="file-btn" for="backInput">
+                <ion-icon name="camera-outline"></ion-icon>
+                <span>Back Side</span>
+              </label>
+              <input
+                id="backInput"
+                type="file"
+                accept="image/*"
+                (change)="onBackChange($event)"
+              />
+              <div class="file-info" *ngIf="backFile">
+                <small
+                  >{{ backFile.name }} —
+                  {{ backFile.size / 1024 / 1024 | number : "1.2-2" }} MB</small
+                >
+              </div>
+              <div *ngIf="backPreview" class="preview">
+                <img [src]="backPreview" alt="back" />
+              </div>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <ion-button
+              expand="block"
+              color="medium"
+              fill="outline"
+              (click)="reset()"
+              >Reset</ion-button
+            >
+            <ion-button
+              expand="block"
+              color="primary"
+              (click)="submit()"
+              [disabled]="uploading"
+            >
+              <ion-spinner *ngIf="uploading" name="dots"></ion-spinner>
+              <span *ngIf="!uploading">Save Aadhaar</span>
+            </ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -5,6 +5,10 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { FinanceComponent } from './finance/finance.component';
+import { AadhaarFormComponent } from './aadhaar-form/aadhaar-form.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -25,8 +29,20 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactComponent
-  }
+    component: ContactComponent,
+  },
+  {
+    path: 'customer-form',
+    component: CustomerFormComponent,
+  },
+  {
+    path: 'finance/:userId',
+    component: FinanceComponent,
+  },
+  {
+    path: 'aadhaar-form/:userId',
+    component: AadhaarFormComponent,
+  },
 ];
 
 @NgModule({
@@ -35,4 +51,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

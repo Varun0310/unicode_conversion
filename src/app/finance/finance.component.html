@@ -1,0 +1,142 @@
+<ion-content class="finance-page ion-padding">
+  <div class="form-wrapper">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Salary & Expenses</ion-card-title>
+        <ion-card-subtitle *ngIf="userId"
+          >User ID: {{ userId }}</ion-card-subtitle
+        >
+      </ion-card-header>
+
+      <ion-card-content>
+        <h3>Incomes</h3>
+        <div *ngFor="let inc of incomes; let i = index" class="row">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="7">
+                <ion-item>
+                  <ion-label position="stacked">Source</ion-label>
+                  <ion-input
+                    [(ngModel)]="incomes[i].source"
+                    (ionChange)="onIncomeChange()"
+                    placeholder="e.g., Job, Freelance"
+                  ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="4">
+                <ion-item>
+                  <ion-label position="stacked">Amount</ion-label>
+                  <ion-input
+                    [(ngModel)]="incomes[i].amount"
+                    (ionChange)="onIncomeChange()"
+                    type="number"
+                    min="0"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="1" class="col-action">
+                <ion-button
+                  fill="clear"
+                  size="small"
+                  (click)="removeIncome(i)"
+                  [disabled]="incomes.length === 1"
+                >
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="add-row">
+          <ion-button fill="outline" size="small" (click)="addIncome()">
+            <ion-icon name="add-circle-outline"></ion-icon> Add Income
+          </ion-button>
+        </div>
+
+        <hr />
+
+        <h3>Expenses</h3>
+        <div *ngFor="let exp of expenses; let j = index" class="row">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="7">
+                <ion-item>
+                  <ion-label position="stacked">Title</ion-label>
+                  <ion-input
+                    [(ngModel)]="expenses[j].title"
+                    (ionChange)="onExpenseChange()"
+                    placeholder="e.g., Rent, Food"
+                  ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="4">
+                <ion-item>
+                  <ion-label position="stacked">Amount</ion-label>
+                  <ion-input
+                    [(ngModel)]="expenses[j].amount"
+                    (ionChange)="onExpenseChange()"
+                    type="number"
+                    min="0"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="1" class="col-action">
+                <ion-button
+                  fill="clear"
+                  size="small"
+                  (click)="removeExpense(j)"
+                  [disabled]="expenses.length === 1"
+                >
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="add-row">
+          <ion-button fill="outline" size="small" (click)="addExpense()">
+            <ion-icon name="add-circle-outline"></ion-icon> Add Expense
+          </ion-button>
+        </div>
+
+        <div class="totals">
+          <div class="tot-line">
+            <strong>Total Income:</strong> ₹
+            {{ totalIncome | number : "1.2-2" }}
+          </div>
+          <div class="tot-line">
+            <strong>Total Expense:</strong> ₹
+            {{ totalExpense | number : "1.2-2" }}
+          </div>
+          <div class="tot-line balance">
+            <strong>Remaining Balance:</strong> ₹
+            {{ balance | number : "1.2-2" }}
+          </div>
+        </div>
+
+        <div class="action-row">
+          <ion-button
+            expand="block"
+            color="medium"
+            fill="outline"
+            (click)="router.navigateByUrl('/')"
+            >Cancel</ion-button
+          >
+          <ion-button
+            expand="block"
+            color="primary"
+            (click)="submit()"
+            [disabled]="saving"
+          >
+            <ion-spinner *ngIf="saving" name="dots"></ion-spinner>
+            <span *ngIf="!saving">Save & Finish</span>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

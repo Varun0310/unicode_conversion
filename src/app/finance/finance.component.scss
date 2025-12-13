@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.form-wrapper {
+  max-width: 940px;
+  margin: 18px auto;
+}
+
+h3 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.add-row {
+  margin: 8px 0 12px;
+}
+
+.totals {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.tot-line {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+.balance {
+  font-size: 1.1rem;
+  color: #0b6ef6;
+  font-weight: 700;
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* small tweaks */
+.col-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
