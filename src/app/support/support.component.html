@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Support</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="support-page">
+
+  <!-- Intro Card -->
+  <div class="support-header">
+    <h2>How can we help you?</h2>
+    <p>
+      Get quick help with your account, payments, or technical issues.
+    </p>
+  </div>
+
+  <!-- Support Options -->
+  <div class="support-options">
+
+    <!-- Contact Support -->
+    <div class="support-card">
+      <ion-icon name="call-outline"></ion-icon>
+      <div class="text">
+        <h3>Contact Support</h3>
+        <p>Talk directly with our support team</p>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="support-card">
+      <ion-icon name="mail-outline"></ion-icon>
+      <div class="text">
+        <h3>Email Us</h3>
+        <p>support@finopay.com</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="support-card" (click) = "gotochat()">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      <div class="text">
+        <h3>Chat with Us</h3>
+        <p>Instant help with our AI support</p>
+      </div>
+    </div>
+
+    <!-- Report Issue -->
+    <div class="support-card">
+      <ion-icon name="bug-outline"></ion-icon>
+      <div class="text">
+        <h3>Report an Issue</h3>
+        <p>Let us know if something is not working</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Help -->
+  <div class="support-footer">
+    <p>
+      Our support team is available 24/7 to assist you.
+    </p>
+  </div>
+
+</ion-content>

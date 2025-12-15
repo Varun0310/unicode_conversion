@@ -35,6 +35,9 @@ mongoose.connect(process.env.MONGO_URI).then(() => console.log('Mongo connected'
 
 app.use('/api/auth', authRoutes);
 
+app.use('/api/gemini', require('./routes/gemini'));
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 

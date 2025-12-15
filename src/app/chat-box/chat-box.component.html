@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/support"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chat Support</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-page">
+
+  <div class="chat-container">
+    <div *ngFor="let msg of messages" class="chat-message" [ngClass]="msg.from">
+
+      <div class="bubble">
+        {{ msg.text }}
+      </div>
+
+      <span class="time">{{ msg.time }}</span>
+    </div>
+  </div>
+
+</ion-content>
+
+<!-- ✅ Input field FIXED -->
+<ion-footer>
+  <div class="chat-input-bar">
+    <ion-input [(ngModel)]="userMessage" placeholder="Type your message..." clearInput>
+    </ion-input>
+
+    <ion-button shape="round" color="primary" (click)="send()" [disabled]="!userMessage.trim()">
+      <ion-icon name="send-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-footer>

@@ -1,0 +1,90 @@
+:host {
+    display: block;
+}
+
+/* Page padding */
+.support-page {
+    padding: 18px 14px 80px;
+    background: #f6f8fc;
+}
+
+/* Top intro section */
+.support-header {
+    background: linear-gradient(135deg,
+            var(--ion-color-primary),
+            #1a73e8);
+    color: #ffffff;
+    border-radius: 18px;
+    padding: 22px;
+    margin-top: 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.support-header h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.support-header p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Support cards container */
+.support-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+/* Individual support card */
+.support-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover effect (desktop) */
+.support-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon styling */
+.support-card ion-icon {
+    font-size: 28px;
+    color: var(--ion-color-primary);
+    background: rgba(56, 128, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* Text inside card */
+.support-card .text h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.support-card .text p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #666;
+}
+
+/* Footer info */
+.support-footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 13px;
+    color: #777;
+}
