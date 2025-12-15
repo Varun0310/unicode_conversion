@@ -11,7 +11,8 @@ $RECYCLE.BIN/
 
 *.log
 log.txt
-
+/backend/node_modules
+/backend/.env
 
 /.sourcemaps
 /.versions
