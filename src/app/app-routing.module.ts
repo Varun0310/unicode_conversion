@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
+import { SupportComponent } from './support/support.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'support',
+    component: SupportComponent
+  },
+  {
+    path: 'chat-box',
+    component: ChatBoxComponent
   }
 ];
 

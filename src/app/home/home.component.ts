@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   private langSub: Subscription | null = null;
-  private nameCacheKey = 'name_translations'; // localStorage key for cached name translations
+  private nameCacheKey = 'name_translations';
   private inFlightNameRequests = new Map<string, Promise<string>>();
 
   constructor(
@@ -241,6 +241,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   gotocontact() {
     this.router.navigate(['/contact']);
+  }
+
+  gotosupport() {
+    this.router.navigate(['/support']);
   }
 
   logout() {

@@ -11,8 +11,8 @@ $RECYCLE.BIN/
 
 *.log
 log.txt
-
-
+/backend/node_modules
+/backend/.env
 /.sourcemaps
 /.versions
 /coverage
@@ -68,3 +68,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+backend/.env
+backend/.env
